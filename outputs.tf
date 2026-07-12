@@ -1,3 +1,7 @@
+output "storage_queues_id" {
+  description = "Map of id values across all storage_queues, keyed the same as var.storage_queues"
+  value       = { for k, v in azurerm_storage_queue.storage_queues : k => v.id }
+}
 output "storage_queues_metadata" {
   description = "Map of metadata values across all storage_queues, keyed the same as var.storage_queues"
   value       = { for k, v in azurerm_storage_queue.storage_queues : k => v.metadata }
