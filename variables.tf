@@ -37,5 +37,9 @@ EOT
   #   source:    [from commonids.ValidateStorageAccountID] !ok
   # path: storage_account_id
   #   source:    [from commonids.ValidateStorageAccountID] err != nil
+  # path: metadata
+  #   source:    [from validate.MetaDataKeys] isCSharpKeyword
+  # path: metadata
+  #   source:    [from validate.MetaDataKeys] !regexp.MustCompile(`^([a-z_]{1}[a-z0-9_]{1,})$`).MatchString(k)
 }
 
