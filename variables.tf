@@ -3,17 +3,15 @@ variable "storage_queues" {
 Map of storage_queues, attributes below
 Required:
     - name
+    - storage_account_id
 Optional:
     - metadata
-    - storage_account_id
-    - storage_account_name
 EOT
 
   type = map(object({
-    name                 = string
-    metadata             = optional(map(string))
-    storage_account_id   = optional(string)
-    storage_account_name = optional(string)
+    name               = string
+    storage_account_id = string
+    metadata           = optional(map(string))
   }))
   validation {
     condition = alltrue([
